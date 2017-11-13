@@ -1,0 +1,430 @@
+<style type="text/css">
+.clearIcon{
+ background-image: url('/wps/sceportal-portlet-billingnpayments/_AccSummary/images/cleartext.jpg');
+ }	
+.viewBtnDisplay{
+  display:none;
+}
+.respDisp{
+display:none;
+}
+.payNowButtton.dijitButtonDisabled.rightArrow .dijitButtonText{
+ 	background-image: url("/wps/scethemeresponsive/static/themes/scethemeresponsive/sce/themes/sceui/images/widgetIconsSprite.png") !important;
+    background-position: right -99.733em !important;
+    background-repeat: no-repeat !important;
+    background-size: 5em auto !important;
+    padding: 0.1em 0.866667em 0 0 !important;
+} 
+.actionButtonPadding .dijitButtonDisabled.rightArrow .dijitButtonText{
+   background-image: url("/wps/scethemeresponsive/static/themes/scethemeresponsive/sce/themes/sceui/images/widgetIconsSprite.png") !important;
+    background-position: right -99.733em !important;
+    background-repeat: no-repeat !important;
+    background-size: 5em auto !important;
+    padding: 0.1em 0.866667em 0 0 !important;
+}
+.payNowButtton.dijitButton.subdued-yellow .dijitButtonNode{
+  background-color:#EEBB23 !important;
+  color:#080808;
+}
+.actionButtonPadding .dijitButton.subdued-yellow .dijitButtonNode{
+  background-color:#EEBB23 !important;
+  color:#080808;
+}
+.payNowButtton.dijitButton.dijitButtonHover.subdued-yellow .dijitButtonNode{
+  background-color:#C49301 !important;
+  color:#080808;
+}
+.actionButtonPadding .dijitButton.dijitButtonHover.subdued-yellow .dijitButtonNode{
+  background-color:#C49301 !important;
+  color:#080808;
+}
+
+div.bgColor{
+ margin-left:-15px !important;
+ margin-bottom:-15px !important;
+ margin-right:-15px !important;
+}
+.dNoneResp{
+ display:block;
+}
+.sortWidth{
+  width:90%;
+}.
+.accouStatus{
+
+ padding-left:2px !important;
+}
+.payNowBlock{
+ font-size:0.8em;
+}
+.accountSecWidth{
+width:95%;
+}
+.width-40{
+ width:40%;
+}
+.width-60{
+ width:60%;
+}
+.width-35{
+  width:35% !important;
+}
+.two-col .checkBoxWidth{
+ width:7%;
+}
+.two-col .acctDetailsWidth{
+  width:93%;
+}
+.verticalAlign{
+	position: relative;
+  margin-top: 7%;
+  
+}
+.two-col .width-70{
+  width:65%;
+}
+.two-col .width-30{
+  width:35%;
+}
+.accNumber{
+ padding-top:0.5%;
+}
+.manageAccounts{
+  float:right;
+}
+.detailsRightUppSection{
+  padding-top:3%;
+}
+.detailsBottomPanelLbl{
+  padding-top:4%;
+}
+.detailsBottomPanelVal{
+  padding-top:4%;
+}
+.accountSummaryHeader{
+  cursor:pointer;
+}
+.clearAll{
+  font-size:0.8em;
+  padding-left:5px;
+}
+.actionButtonPadding{
+padding:0 0 2% 2%;
+}
+.accSummSection{
+  font-size:1em;
+  padding:15px !important;
+}
+.rightCarot{
+	width: 0;
+	height: 0;
+	border-top: .5em solid transparent;
+	border-bottom: .5em solid transparent;
+	border-left: .5em solid #417300;
+}
+.rightCarot-position{
+  margin-top:1em;
+}
+
+@media(max-width: 480px){
+	.sortWidth{
+	  width:100%;
+	}
+	.accouStatus{
+	 padding-left:0px !important;
+	 margin-top:-20px;
+	}
+	.accountSecWidth{
+	width:100%;
+	}
+	.respDisp{
+	display:inline-block;
+	}
+	.rightCarot-position{
+	  margin-top:-4.5em !important;
+	}
+	.dNoneResp{
+	 display:none;
+	}
+	.detailsRightUppSection{
+	  padding-top:0%;
+	}
+	.accSummSection{
+	  font-size:1em;
+	  padding:2%;
+	}
+	.accountSummaryHeader{
+	  cursor:pointer;
+	}
+	.two-col .width-30{
+	  width:100%;
+	}
+	.two-col .width-70{
+	  width:100%;
+	}
+}
+@media(max-width: 767px){
+	.manageAccounts{
+	  float:none;
+	}
+}
+	
+	#accountSectionWrapper  div .outerContainer {
+		background-color: #fff !important;
+		border: none !important;
+		box-sizing: border-box !important;
+		position: relative !important;
+		width: 100%;
+	}
+
+	 #accountSectionWrapper  div .alert{
+	  display:none;
+	}
+
+	#accountSectionWrapper  div .wdgtContentContainer{
+	  display:none;
+	}
+	#accountSectionWrapper  div .validState{
+	 border:none !important;
+	}
+	#accountSectionWrapper .checkbox .checkboxContainerInner .widgetContainer .dijitCheckBoxFocused,
+	#accountSectionWrapper .checkbox .checkboxContainerInner .widgetContainer .dijitCheckBoxHover {
+		outline: 2px solid #2871db;
+	}
+	.accountSectionAnchor:focus, .accountSectionAnchor:hover{
+	  border: 1px solid #2871db;
+	  display:block;
+	}
+	#searchBtn:focus, #searchBtn:hover{
+	   border: 2px solid #2871db;
+	}
+    /* Newly added */
+
+.checkBoxWidth{
+ width: 5% !important;
+ padding:0 !important;
+ float: left !important;
+ max-width: 5% !important;
+ margin-right:1% !important;
+}
+.chkboxcontentWidth{
+	 width: 94% !important;
+	 padding:0 !important;
+	 float:left !important;
+	 max-width: 94% !important;
+	}
+.two-col .acctDetailsWidth{
+  width:93%;
+}
+.btnlink {
+	padding-top:5px !important;			
+}
+
+@media(max-width: 480px){
+	div.bgColor{
+	 display:none !important;
+	 margin-left:-15px !important;
+	 margin-bottom:-15px !important;
+	 margin-right:-15px !important;
+	}
+	.chkboxcontentWidth{
+	 width: 100% !important;
+	 padding:0 !important;
+	 float:left !important;
+	 max-width: 100% !important;
+	}
+		
+	.acctStatus{
+	font-weight:700;
+	}
+}
+@media(max-width: 767px){
+	.checkBoxWidth{
+	 width: 5% !important;
+	 padding:0 !important;
+	 float: left !important;
+	 max-width: 5% !important;
+	 margin-right:1% !important;
+	}
+	.chkboxcontentWidth{
+	 width: 93% !important;
+	 padding:0 !important;
+	 float:left !important;
+	 max-width: 93% !important;
+	 margin-left:1% !important;
+	}
+		
+}
+@media(max-width: 640px){
+	.chkboxcontentWidth{
+	 width: 91% !important;
+	 padding:0 !important;
+	 float:left !important;
+	 max-width: 91% !important;
+	 margin-left:3% !important;
+	}
+}
+@media(max-width: 480px){
+	.chkboxcontentWidth{
+	 width: 100% !important;
+	 padding:0 !important;
+	 float:left !important;
+	 max-width: 100% !important;
+	 margin-left:0 !important;
+	}
+}
+
+	
+	#accountSectionWrapper  div .outerContainer {
+		background-color: #fff !important;
+		 border: none !important;
+		box-sizing: border-box !important;
+		position: relative !important;
+		width: 100%;
+	}
+
+	 #accountSectionWrapper  div .alert{
+	  display:none;
+	}
+
+	#accountSectionWrapper  div .wdgtContentContainer{
+	  display:none; 
+	}
+	#accountSectionWrapper  div .validState{
+	 border:none !important;
+	}
+	.actionbarButtons {
+	    float: left;
+	    padding: 10px 10px 0px 0px;
+	}
+	  @media (max-width:767px) {
+	 	.actionbarButtons {
+	 		float: none;
+	 		padding: 10px 0 0 0 !important;
+		}
+	 }
+		 @media (max-width:640px) {
+			
+		 }
+		.headerbottomSpace{
+			padding-bottom:5px;
+			}
+		.bottomSpace{
+			padding-bottom:10px;
+			}
+		.four-col {
+			position: relative;
+		}
+
+		.four-col .twocoltxt,
+		.four-col .twocolbtn{
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			float: left;			
+			width: 50%;
+			max-width: 50% ;
+		}
+		
+		.four-col .twocoltxt{
+			padding: 0 !important;
+		}
+		
+		.four-col .twocolbtn{
+			padding: 0 !important;		
+		}
+		
+.colDate {
+ width:35% !important;
+}
+@media (max-width:767px) {
+	.colDate {
+		 width:inherit !important;
+	}
+ }
+ @media (max-width:480px) {
+	.colDate {
+		 width:inherit !important;
+	}
+	.four-col .twocolbtn {
+				float: none !important;
+				width: 100% !important;
+				max-width:100% !important;
+				padding: 0 10px !important;
+			}
+			
+			
+ }
+		 
+ .colBlnc {
+	 width:65% !important;
+	 padding-left:25% !important; 
+}
+@media (max-width:767px) {
+	.colBlnc {
+		 width:inherit !important;
+		 padding-left:inherit !important;
+	}
+ }
+ @media (max-width:480px) {
+	.colBlnc {
+		 width:inherit !important;
+		 padding-left:inherit !important;
+	}
+ }
+ 
+  .colStatus {
+	 width:45% !important;  
+}
+@media (max-width:767px) {
+	.colStatus {
+		 width:inherit !important;
+	}
+ }
+ @media (max-width:480px) {
+	.colStatus {
+		 width:inherit !important;
+	}
+ }
+	 
+
+  .colName {
+	width:55% !important;  
+}
+@media (max-width:767px) {
+	.colName {
+		 width:inherit !important;
+	}
+ }
+ @media (max-width:480px) {
+	.colName {
+		 width:inherit !important;
+	}
+	
+ }	 
+.enroll .four-col .twocoltxt {
+    max-width: 60% !important;
+    width: 60% !important;
+}
+
+
+.enroll .four-col .twocoltxt:first-child {
+    width: 40% !important;
+}
+.infoModule{
+	background-color:#ffffff;
+	padding:15px;
+}
+.bannerText{
+	font-size:18px!important;
+	padding-bottom:10px!important;
+}
+@media (max-width:767px) {
+	.progressIndicator{
+		width: 100%!important;
+	}
+	.bannerText{
+		width: 100%!important;
+	}
+}
+
