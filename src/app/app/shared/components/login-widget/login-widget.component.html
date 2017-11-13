@@ -1,0 +1,219 @@
+<div id="loginDrawerContainer" class="visible-desktop clear" role="region" aria-label="user account section">
+    <div class="drawerWdgt" lang="en" id="loginDrawer" widgetid="loginDrawer" style="display: block;">
+    <div id="loginDrawer_drawerContentContainer" class="drawerContentContainer" role="region" tabindex="0" aria-label="loginDrawer drawer section" style="background-color: rgb(206, 206, 206);">
+        <div id="loginDrawer_drawerContent" class="drawerContent">
+    
+        <div class="loginContainer">
+            <h2 class="contentHeader" id="desktopLoginCalloutHeader">Log In 
+            <span class="fright" style="padding-right: 6.7%;">New to SCE?</span>
+            </h2>
+            <h2 class="contentHeader actionText">
+                <span class="interrupt">To complete setup, log in or continue as <a id="desktopContinueGuestAnchor" href="">guest</a>:</span>
+                <span class="mandatory">This transaction requires an SCE.com User ID. Please login to continue:</span>
+            </h2>
+            <div class="login">
+            <div id="desktopLoginSectionLandmark" class="actionText" tabindex="-1">Log In</div>
+            <div id="loginSection">
+            <div id="fullLoginComponent">
+                <form class="fullLoginForm" #loginForm="ngForm" id="loginDesktopForm" name="loginDesktopForm" method="post" action="">
+                    <div class="fieldsWrapper">
+                      <div class="two-col">
+                    <div id="top_login_first_col" class="col" style="width: 80%;border-right: 1px inset black;">
+
+                        <!--  -->
+                        <div class="fieldsSecondaryWrapper">
+                            <div id="uid" class="largeWrapper" style="width: 35%;">
+                                <div class="fieldset">
+									 <div class="form-group textbox">
+										<div class="outerContainer" [ngClass]="{'disabled':userid.disabled}">
+										  <div class="textboxContainer" [ngClass]="{'invalidState':userid 
+										  && (userid.dirty || userid.touched) && !userid.valid, 'validState':userid 
+										  && (userid.dirty || userid.touched) && userid.valid}">
+											<div class="textboxContainerInner paddingTextWithInfo" >
+												 <input type="text" id="userid" name="userid" placeholder="User id / Email"
+												 required [(ngModel)]="loginForm.userid" #userid="ngModel" 
+												 >
+											</div>
+										  </div>
+										  <div class="iconsContainer">
+											<div class="iconStatus hideIcon"
+											  [ngClass]="{'showIcon':userid 
+										  && (userid.dirty || userid.touched) && userid.valid}">
+											</div>
+											<div class="iconInfotip" tabindex="0" role="button" title="Open Section"
+											#useridInfo (click)="useridInfo.showMore = !useridInfo.showMore;"></div>
+										  </div>
+										  <div *ngIf="useridInfo.showMore" class="drawerWdgt">
+											  <div  class="drawerContentContainer" tabindex="0" aria-label="drawer section"  aria-expanded="true">
+												  <div class="drawerContent" >
+													<div class="infotipContent">
+																		<span>Enter your user id.</span>
+															</div>
+														</div>
+												  <div class="clear"></div>
+											  </div>
+										  </div>
+										</div>  
+									   
+
+										<div *ngIf="userid.invalid && (userid.dirty || userid.touched)"
+											 class="errorContainer error">
+										  <div class="errorContainerIcon"></div>
+										  <div class="errorContainerMessage" aria-live="assertive">
+											<div *ngIf="userid.errors.required">
+											  User id is required.
+											</div>
+										  </div>
+										</div>
+									  </div>		
+									
+										
+                                </div>
+								
+                                <div class="clear"></div>
+                            </div>
+                            <div id="top_pass" class="largeWrapper text-wraptl" style="width: 35%;">
+                                <div class="fieldset">
+                                <div class="form-group textbox">
+										<div class="outerContainer" [ngClass]="{'disabled':pwd.disabled}">
+										  <div class="textboxContainer" [ngClass]="{'invalidState':pwd 
+										  && (pwd.dirty || pwd.touched) && !pwd.valid, 'validState':pwd 
+										  && (pwd.dirty || pwd.touched) && pwd.valid}">
+											<div class="textboxContainerInner paddingTextWithInfo" >
+												 <input type="password" id="pwd" autocomplete="off" name="pwd" placeholder="Password"
+												 required [(ngModel)]="loginForm.pwd" #pwd="ngModel" 
+												 >
+											</div>
+										  </div>
+										  <div class="iconsContainer">
+											<div class="iconStatus hideIcon"
+											  [ngClass]="{'showIcon':pwd 
+										  && (pwd.dirty || pwd.touched) && pwd.valid}">
+											</div>
+											<div class="iconInfotip" tabindex="0" role="button" title="Open Section"
+											#pwdInfo (click)="pwdInfo.showMore = !pwdInfo.showMore;"></div>
+										  </div>
+										  <div *ngIf="pwdInfo.showMore" class="drawerWdgt">
+											  <div  class="drawerContentContainer" tabindex="0" aria-label="drawer section"  aria-expanded="true">
+												  <div class="drawerContent" >
+													<div class="infotipContent">
+																		<span>Enter your password.</span>
+															</div>
+														</div>
+												  <div class="clear"></div>
+											  </div>
+										  </div>
+										</div>  
+									   
+
+										<div *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)"
+											 class="errorContainer error">
+										  <div class="errorContainerIcon"></div>
+										  <div class="errorContainerMessage" aria-live="assertive">
+											<div *ngIf="pwd.errors.required">
+											  Password is required.
+											</div>
+										  </div>
+										</div>
+									  </div>	    
+									
+									
+										
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="textWrapper fleft mandatory">
+                            <div class="textWrapperHeader">Why log in?</div>When you log in, your existing contact information in your SCE profile is available to choose from, so you don't have to type it all in again.
+                        </div>
+                         
+                        <div class="loginButtonWrapper" style="width: 30%;">
+                        
+							 <div class="buttonContainer">
+								<button type="submit" class="primary-button" style="width: 100%;"
+										[disabled]="loginForm.invalid" (click)="loginWithPassword(loginForm.value)"><span class="buttonText">Log In</span>
+								</button>		
+							  </div> 
+                       
+                        </div>
+                        <div class="clear"></div>
+                        <div class="largeWrapper"> 
+                            <div class="messageContent textWrapper mandatory"><div id="registerLink" style="display:none;"> New to SCE? <a href="https://www.sce.com/wps/portal/home/mysce/userreg?newrequest=new" title="Register">Register</a></div></div>
+                        </div>
+                        <div id="resetPass" class="largeWrapper" style="width: 35%;margin-left:5%;"> 
+                            <div class="messageContent textWrapper" style="padding-top: 15px;">Forgot your password?<br><a style="color: #417300" href="" title="Reset password">Reset Password&nbsp;&gt;</a></div>
+                        </div>
+                        <div id="rememberme_normal" class="contentRow rememberMeWrapper" style="width: 30%;padding-right:0px;">
+							<div class="form-group custom-checkbox">
+								<div class="outerContainer">
+								  <div class="checkboxContainer" [ngClass]="{'invalidState':chkRememberMe 
+								  && (chkRememberMe.dirty || chkRememberMe.touched) && !chkRememberMe.valid, 'validState':chkRememberMe 
+								  && (chkRememberMe.dirty || chkRememberMe.touched) && loginForm.chkRememberMe}">
+									<div class="checkboxContainerInner paddingTextWithInfo" >
+										 <div class="widgetContainer">
+										   <div class="dijit dijitReset dijitInline dijitCheckBox" [ngClass]="{'dijitCheckBoxChecked':loginForm.chkRememberMe }">
+											 <input name="chkRememberMe" type="checkbox" [(ngModel)]="loginForm.chkRememberMe" [checked]="loginForm.chkRememberMe" (change)="loginForm.chkRememberMe = $event.target.checked" #chkRememberMe="ngModel"  class="dijitReset dijitCheckBoxInput" tabindex="0" id="chkRememberMe" 
+											 aria-checked="false" aria-disabled="false" role="checkbox" aria-invalid="false" style="user-select: none;">
+											</div>
+										  </div>
+										  
+										  <div class="wdgtContentContainer">
+											<label for="rememberMeCheckbox" class="">Remember Me</label>
+										</div>
+									</div>
+								  </div>
+								  <div class="iconsContainer">
+									<div class="iconStatus hideIcon"
+									  [ngClass]="{'showIcon':chkRememberMe 
+								  && (chkRememberMe.dirty || chkRememberMe.touched) && loginForm.chkRememberMe}">
+									</div>
+									<div class="iconInfotip" tabindex="0" role="button" title="Open Section"
+									#checkInfo (click)="checkInfo.showMore = !checkInfo.showMore;"></div>
+								  </div>
+								  <div *ngIf="checkInfo.showMore" class="drawerWdgt">
+									  <div  class="drawerContentContainer" tabindex="0" aria-label="drawer section"  aria-expanded="true">
+										  <div class="drawerContent" >
+											<div class="infotipContent">
+																<span>Enter your 9 digit bank ABA routing number.</span>
+													</div>
+												</div>
+										  <div class="clear"></div>
+									  </div>
+								  </div>
+								</div>  
+							   
+
+								<div *ngIf="chkRememberMe.invalid && (chkRememberMe.dirty || chkRememberMe.touched)"
+									 class="errorContainer error">
+								  <div class="errorContainerIcon"></div>
+								  <div class="errorContainerMessage" aria-live="assertive">
+									<div *ngIf="chkRememberMe.errors.required">
+									  required field.
+									</div>
+
+								  </div>
+								</div>
+							  </div>
+                        </div>
+                        <div class="clear"></div>
+                        </div> <!--end of first col  -->
+                    <div id="secondCallWrapper" class="col" style="width: 20%;">
+                    <div class="secondCallWrapper">
+						<div class="buttonContainer" >
+							<button type="button" class="primary-button" style="width: 100%;"><span class="buttonText">Register</span></button>
+						  </div>     
+                    <div> <p style="padding-top: 15px;font-size: 15px;">Register to easily view and pay your bills, review your usage, sign up for notifications, and more.</p></div>
+                    </div>
+                    </div>
+                    </div> <!-- end of two col -->
+                    </div>
+                    
+                </form>
+            </div>
+            </div>  
+            <div class="clear"></div>
+        </div>
+    
+    </div>
+</div>
+</div>

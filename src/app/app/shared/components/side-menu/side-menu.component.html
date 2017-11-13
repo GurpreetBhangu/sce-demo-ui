@@ -1,0 +1,1169 @@
+<div id="sideColumn" class="visible-desktop fleft">
+   <!--  START - From leftNavigation.jsp Page -->
+   <div id="sideColumnNav" aria-label="mainLeft contentMenu">
+      <div class="nav-container">
+         <div class="leftNavigationWdgt" style="height: auto;" lang="en" id="navTree" widgetid="navTree">
+            <nav class="navigation" aria-label="navTree">
+               <div class="accordion-nav">
+                  <ul class="accordion">
+					<li *ngFor="let i of menuList" class="level1Child">
+						<div class="containerNode level1">
+							<a [ngClass]="{'selected':isRouteActive(i.displayName)}" (click)="level1Click(i.displayName)" title="{{ i.subMenu ? 'expand category:'+i.displayName : ''}}">
+							  <div class="accordionitem-state " [ngClass]="isLevel1Active(i.displayName)?'expanded':'collapsed'" *ngIf="i.subMenu"></div>
+							  {{i.displayName}}
+							</a>
+							<ul class="level2OuterContainer second-level" *ngIf="i.subMenu" [ngClass]="{'active':isLevel1Active(i.displayName)}" style="display:none">
+								<li *ngFor="let j of i.subMenu" class="level2Child">
+									<div class="containerNode level2">
+										<a (click)="j.subMenu ? level2Click(j.displayName):false" [routerLink]="j.url ? j.url: null" [ngClass]="{'selected':isRouteActive(j.displayName)}" title="{{ j.subMenu ? 'expand category:'+j.displayName : ''}}">
+										  <div class="accordionitem-state" [ngClass]="isLevel2Active(j.displayName)?'expanded':'collapsed'" *ngIf="j.subMenu"></div>
+										  {{j.displayName}}
+										</a>
+										<ul class="level3OuterContainer third-level" *ngIf="j.subMenu" [ngClass]="{'active':isLevel2Active(j.displayName)}" style="display:none">
+											<li *ngFor="let k of j.subMenu" class="level3Child">
+												<div class="containerNode level3">
+													<a [routerLink]="k.url" [ngClass]="{'selected':isRouteActive(k.displayName)}">
+													  <div class="accordionitem-state collapsed" *ngIf="k.subMenu"></div>
+													  {{k.displayName}}
+													</a>
+												</div>	
+											</li>	
+										</ul>
+									</div>	
+								</li>	
+							</ul>
+						</div>	
+					 </li> 
+                     <!--<li class="level1Child">
+                        <div class="containerNode level1">
+                           <a href="#" class="expandable" title="expand category: Quick Services">
+                              <div class="accordionitem-state collapsed"></div>
+                              Quick Services
+                           </a>
+                           <ul class="level2OuterContainer second-level" style="display: none;">
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="https://www.sce.com/wps/myportal/home/mysce/billsnpayments/accountSummary&amp;">Pay Your Bill</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/sce_content_en/content/applications/self+service+online+payment&amp;">Pay As Guest</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="https://www.sce.com/wps/myportal/home/mysce/myaccount?deeptarget=/sma/ESCBP/EscMyBillsAndPayment.aspx&amp;">View Balance and Usage</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/sce_content_en/content/outage+center&amp;">Report an Outage</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/sce_content_en/content/customer+support/responsive_move_center_sa&amp;">Turn Service On/Off</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/sce_content_en/content/residential/rebates-savings/rebates&amp;">Rebates for Your Home</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/sce_content_en/content/customer+support/contact+us&amp;">Contact Us</a></div>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="level1Child">
+                        <div class="containerNode level1">
+                           <a href="#" class="expandable" title="expand category: Your Home">
+                              <div class="accordionitem-state collapsed"></div>
+                              Your Home
+                           </a>
+                           <ul class="level2OuterContainer second-level" style="display: none;">
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential&amp;">Overview - Your Home<span class="hiddenAssociation">:Your Home</span></a></div>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: My Account Benefits">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       My Account Benefits
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/my-account&amp;">Overview - My Account Benefits<span class="hiddenAssociation">:My Account Benefits</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/my-account/Budget+Assistant&amp;">Budget Assistant</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/my-account/han&amp;">Home and Business Area Network</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/my-account/Mobile+My+Account&amp;">Mobile My Account</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Rebates, Incentives, &amp; Savings Tips">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Rebates, Incentives, &amp; Savings Tips
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/rebates-savings&amp;">Overview - Rebates, Incentives, &amp; Savings Tips<span class="hiddenAssociation">:Rebates, Incentives, &amp; Savings Tips</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/rebates-savings/rebates&amp;">Rebates &amp; Incentives</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/rebates-savings/energy-upgrade-california&amp;">Energy Upgrade California® Home Upgrade</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/rebates-savings/save-power-day&amp;">Save Power Days</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/rebates-savings/summer-discount-plan&amp;">Summer Discount Plan</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/rebates-savings/multifamily-rebate-program&amp;">Multifamily Property Resource Center</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/rebates-savings/Manufactured+Home+Program&amp;">Manufactured Home Rebates</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/rebates-savings/Energy+Saving+Tips&amp;">Energy Saving Tips</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Help With Your Bill">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Help With Your Bill
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/assistance&amp;">Overview - Help With Your Bill<span class="hiddenAssociation">:Help With Your Bill</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/assistance/care-fera&amp;">CARE/FERA</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/assistance/tenergy-assistance-fund&amp;">Energy Assistance Fund</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/assistance/energy-saving-program&amp;">Energy Savings Assistance Program</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/assistance/medical-baseline&amp;">Medical Baseline</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/assistance/Scenario1+Test&amp;">Scenario1 Test</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Making Your Home More Efficient">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Making Your Home More Efficient
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/Making+Your+Home+More+Efficient&amp;">Overview - Making Your Home More Efficient<span class="hiddenAssociation">:Making Your Home More Efficient</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/Making+Your+Home+More+Efficient/01_Building+Materials%2C+Heating+and+Cooling&amp;">Building Materials, Heating and Cooling</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/Making+Your+Home+More+Efficient/02_Kitchen+and+Laundry+Appliances&amp;">Kitchen and Laundry Appliances</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/Making+Your+Home+More+Efficient/03_Lighting+and+Electronics&amp;">Lighting and Electronics</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/Making+Your+Home+More+Efficient/04_Energy+Guide+and+Energy+Star&amp;">Energy Guide &amp; Energy Star</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/Making+Your+Home+More+Efficient/05_Energy+Efficiency+Financing&amp;">Energy Efficiency Financing</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/Making+Your+Home+More+Efficient/Home+Energy+Advisor&amp;">Energy Advisor</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Electric Vehicles">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Electric Vehicles
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/electric-cars&amp;">Overview - Electric Vehicles<span class="hiddenAssociation">:Electric Vehicles</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/electric-cars/charging-and-installation&amp;">Charging and Installation Options</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/electric-cars/tools-resources&amp;">Tools &amp; Resources</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/electric-cars/benefits-and-incentives&amp;">Benefits</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/electric-cars/Electric+Cars+Residential+Rates&amp;">Electric Vehicle Rates</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/electric-cars/Charge+Ready&amp;">Charge Ready</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Generating Your Own Power">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Generating Your Own Power
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/generating-your-own-power&amp;">Overview - Generating Your Own Power<span class="hiddenAssociation">:Generating Your Own Power</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/generating-your-own-power/solar-power&amp;">Solar Power</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/generating-your-own-power/Self+Generation+and+Incentive+Program&amp;">Self-Generation Incentive</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/generating-your-own-power/Net+Energy+Metering&amp;">Net Energy Metering</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/generating-your-own-power/Virtual+Net+Metering&amp;">Virtual Net Metering</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/generating-your-own-power/Grid+Interconnections&amp;">Grid Interconnections</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Rates">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Rates
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/rates&amp;">Overview - Rates<span class="hiddenAssociation">:Rates</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/rates/residential-plan&amp;">Time-Of-Use Residential Rate Plans</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/rates/Standard+Residential+Rate+Plan&amp;">Tiered Rate Plan</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/rates/residential-rates&amp;">Electric Vehicle Rates</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/rates/multi-family&amp;">Multifamily Rates</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Classes &amp; Events">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Classes &amp; Events
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/news-events&amp;">Overview - Classes &amp; Events<span class="hiddenAssociation">:Classes &amp; Events</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/news-events/energy-education-centers&amp;">Energy Education Centers</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/Test+Page&amp;">Test Page</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/Test+Page+1&amp;">Test Page 1</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/residential/TestPagefortestingSearchIssue&amp;">TestPagefortestingSearchIssue</a></div>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="level1Child">
+                        <div class="containerNode level1">
+                           <a href="#" class="expandable" title="expand category: Your Business">
+                              <div class="accordionitem-state collapsed"></div>
+                              Your Business
+                           </a>
+                           <ul class="level2OuterContainer second-level" style="display: none;">
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business&amp;">Overview - Your Business<span class="hiddenAssociation">:Your Business</span></a></div>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: My Account Benefits">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       My Account Benefits
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/My+Account&amp;">Overview - My Account Benefits<span class="hiddenAssociation">:My Account Benefits</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/My+Account/Business+Area+Network+LC&amp;">Home and Business Area Network</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Savings &amp; Incentives">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Savings &amp; Incentives
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/savings-incentives&amp;">Overview - Savings &amp; Incentives<span class="hiddenAssociation">:Savings &amp; Incentives</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/savings-incentives/express-solutions&amp;">Energy Efficiency Express Solutions</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/savings-incentives/energy-efficiency-customized-solutions&amp;">Energy Efficiency Customized Solutions</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/savings-incentives/Demand+Response&amp;">Demand Response</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/savings-incentives/Summer+Discount+Plan&amp;">Summer Discount Plan</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/savings-incentives/building-improvement&amp;">Building Improvement</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/savings-incentives/multifamily-affordable-solar-housing&amp;">Multifamily Affordable Solar Housing</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/savings-incentives/solar-rebate&amp;">Solar Rebate</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/savings-incentives/Automated+Demand+Response+with+OpenADR&amp;">Automated Demand Response with OpenADR</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Savings By Business Type">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Savings By Business Type
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems&amp;">Overview - Savings By Business Type<span class="hiddenAssociation">:Savings By Business Type</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems/retail&amp;">Retail</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems/Buildings&amp;">Buildings</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems/Restaurants&amp;">Restaurants</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems/Lodging&amp;">Lodging</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems/Manufacturing&amp;">Manufacturing</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems/food-processing&amp;">Food Processing</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems/healthcare&amp;">Healthcare</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems/Schools&amp;">Schools</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems/Agriculture&amp;">Agriculture</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems/Warehousing&amp;">Warehousing</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems/government&amp;">Government</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems/Water+and+Wastewater&amp;">Water and Wastewater</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems/Grocery&amp;">Grocery</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/ems/Data+Centers&amp;">Data Centers</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Tools &amp; Resources">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Tools &amp; Resources
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/tools&amp;">Overview - Tools &amp; Resources<span class="hiddenAssociation">:Tools &amp; Resources</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/tools/Business+Energy+Advisors&amp;">Energy Advisor</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/tools/Energy+Manager&amp;">SCE EnergyManager®</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/tools/Benchmark+Your+Building&amp;">Benchmark Your Building</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/tools/On+Bill+Financing&amp;">Interest Free Energy Efficiency Financing</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/tools/For+Landlords&amp;">Mobilehome Park Utility Upgrade Program</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/tools/Cool+Planet&amp;">Cool Planet</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Electric Vehicles">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Electric Vehicles
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Electric+Cars&amp;">Overview - Electric Vehicles<span class="hiddenAssociation">:Electric Vehicles</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Electric+Cars/Charge+Ready&amp;">Charge Ready</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Electric+Cars/Charging+Stations+for+Fleet&amp;">Fleet</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Electric+Cars/Tools+and+Resources&amp;">Tools &amp; Resources</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Electric+Cars/electric-car-business-rates&amp;">Rates</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Electric+Cars/Workplace+Charging&amp;">Workplace Charging</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Electric+Cars/Public+Charging&amp;">Public Charging</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Electric+Cars/MUD&amp;">MUD</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Generating Your Own Power">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Generating Your Own Power
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Generating+Your+Own+Power&amp;">Overview - Generating Your Own Power<span class="hiddenAssociation">:Generating Your Own Power</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Generating+Your+Own+Power/Solar+Power+for+Business&amp;">Solar Power</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Generating+Your+Own+Power/incentive-program&amp;">Self-Generation Incentive</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Generating+Your+Own+Power/Net+Energy+Metering&amp;">Net Energy Metering</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Generating+Your+Own+Power/Renewable+Energy+Self-Generation+Bill+Credit+Transfer&amp;">Renewable Energy Self-Generation Bill Credit Transfer</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Generating+Your+Own+Power/Grid+Interconnections&amp;">Grid Interconnections</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Generating+Your+Own+Power/Interconnection+and+Standby+Rates&amp;">Interconnection and Standby Rates</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Consulting Services">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Consulting Services
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/consulting-services&amp;">Overview - Consulting Services<span class="hiddenAssociation">:Consulting Services</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/consulting-services/Economic+Development&amp;">Economic Development Services</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/consulting-services/Expansions+and+New+Facilities&amp;">Expansions &amp; New Facilities</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/consulting-services/Building+Operator+Certfication&amp;">Building Operator Certfication</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/consulting-services/Energy+Education+Centers&amp;">Energy Education Centers</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/consulting-services/TRIO&amp;">TRIO</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/consulting-services/Other+Services&amp;">Other Services</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/consulting-services/Share+Your+Ideas&amp;">Share Your Ideas</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/sce_content_en/content/safety/safety+on+the+job&amp;">Safety On the Job</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Classes &amp; Events">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Classes &amp; Events
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/news-events&amp;">Overview - Classes &amp; Events<span class="hiddenAssociation">:Classes &amp; Events</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/news-events/energy-education-centers&amp;">Energy Education Centers</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Welcome+to+SCE+Business&amp;">Welcome to SCE</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Energy Efficiency Financing">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Energy Efficiency Financing
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Energy+Efficiency+Financing&amp;">Overview - Energy Efficiency Financing<span class="hiddenAssociation">:Energy Efficiency Financing</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Energy+Efficiency+Financing/Financing+Programs&amp;">Financing Programs</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/Test+Page+1&amp;">Test Page 1</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/TestPageURL&amp;">TestPageURL</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/business/TestPagefortesting&amp;">TestPagefortesting</a></div>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="level1Child">
+                        <div class="containerNode level1">
+                           <a href="#" class="expandable" title="expand category: Customer Support">
+                              <div class="accordionitem-state collapsed"></div>
+                              Customer Support
+                           </a>
+                           <ul class="level2OuterContainer second-level" style="display: none;">
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support&amp;">Overview - Customer Support<span class="hiddenAssociation">:Customer Support</span></a></div>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/RESPONSIVE_MOVE_CENTER_SA&amp;">Move Center</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Billing &amp; Payment">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Billing &amp; Payment
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/billing-payment&amp;">Overview - Billing &amp; Payment<span class="hiddenAssociation">:Billing &amp; Payment</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/sce_content_en/int_test_contentarea&amp;">Pay Your Bill</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/billing-payment/Pay+As+Guest&amp;">Pay As Guest</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/billing-payment/Other+Payment+Options&amp;">Payment Options</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/billing-payment/understanding-your-bill&amp;">Understanding Your Bill</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/billing-payment/Financial+Assistance&amp;">Help With Your Bill</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/billing-payment/Business+Billing&amp;">Business Billing</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Getting Started With My Account">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Getting Started With My Account
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/My+Account&amp;">Overview - Getting Started With My Account<span class="hiddenAssociation">:Getting Started With My Account</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/My+Account/Smart+Meters&amp;">Smart Meter</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: About Rates">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       About Rates
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/Rates&amp;">Overview - About Rates<span class="hiddenAssociation">:About Rates</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/Rates/Rate+Change+And+General+Rate+Case&amp;">How Rates Are Set</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/Rates/Rates+FAQ&amp;">FAQs</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Request Support">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Request Support
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/Request+Support&amp;">Overview - Request Support<span class="hiddenAssociation">:Request Support</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/Request+Support/Claims&amp;">Claims</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Frequently Asked Questions">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Frequently Asked Questions
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/FAQs&amp;">Overview - Frequently Asked Questions<span class="hiddenAssociation">:Frequently Asked Questions</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/FAQs/Move+Center&amp;">Move Center</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/FAQs/Billing+And+Payment&amp;">Billing &amp; Payment</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/FAQs/Energy+Use&amp;">Energy Use</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/FAQs/Safety&amp;">Safety</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/FAQs/Power+Outages&amp;">Outage Center FAQs</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/FAQs/Outage+Alerts+and+Preferences&amp;">Outage Alerts &amp; Preferences</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/FAQs/Catalina+Island&amp;">Catalina Island Customers</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/FAQs/Alert+Preference+Center&amp;">Alert Preference Center</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Save More This Season">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Save More This Season
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/Summer+Saving+Tips&amp;">Overview - Save More This Season<span class="hiddenAssociation">:Save More This Season</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/Summer+Saving+Tips/Residential&amp;">For Your Home</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/Summer+Saving+Tips/business&amp;">For Your Business</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/Summer+Saving+Tips/Residential_+New&amp;">Help With Your High Bill</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/Contact+Us&amp;">Contact Us</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/Upgrade+Your+SCE.com+User+ID&amp;">Upgrade Your SCE.com User ID</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/Privacy+and+Scam&amp;">Privacy &amp; Scam</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Billing Test">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Billing Test
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/Billing+Test&amp;">Overview - Billing Test<span class="hiddenAssociation">:Billing Test</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Customer+Support/Billing+Test/Pay+Bill+Test&amp;">Pay Bill Test</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="level1Child">
+                        <div class="containerNode level1">
+                           <a href="#" class="expandable" title="expand category: Partners &amp; Vendors">
+                              <div class="accordionitem-state collapsed"></div>
+                              Partners &amp; Vendors
+                           </a>
+                           <ul class="level2OuterContainer second-level" style="display: none;">
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors&amp;">Overview - Partners &amp; Vendors<span class="hiddenAssociation">:Partners &amp; Vendors</span></a></div>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Partnerships">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Partnerships
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/partnerships&amp;">Overview - Partnerships<span class="hiddenAssociation">:Partnerships</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/partnerships/direct-access&amp;">Direct Access</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/partnerships/community-choice-aggregation&amp;">Community Choice Aggregation</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/partnerships/Access+Energy+Usage+Data&amp;">Access Energy Usage Data</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/partnerships/Third-Party+Demand+Response+Service&amp;">Third-Party Demand Response Service</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Trade Professional">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Trade Professional
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/Trade+Professional&amp;">Overview - Trade Professional<span class="hiddenAssociation">:Trade Professional</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/Trade+Professional/solar-installation&amp;">Solar Installation</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/Trade+Professional/Electric+Car+Installation&amp;">Electric Car Installation</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/Trade+Professional/Meter+Data+Management+Agent&amp;">Meter Data Management Agent</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Buying and Selling">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Buying and Selling
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/Buying+and+Selling&amp;">Overview - Buying and Selling<span class="hiddenAssociation">:Buying and Selling</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/Buying+and+Selling/Supplier+Diversity+_Development&amp;">Supplier Diversity and Development</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/Buying+and+Selling/Supply+Chain+Management&amp;">Supply Chain Management</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/Buying+and+Selling/Distributed+Generation+Solutions+and+Alternative+Distributed+Generation+Solutions&amp;">Distributed Generation Solutions &amp; Alternative Distributed Generation Solutions</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Consulting Services">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Consulting Services
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/consulting-services&amp;">Overview - Consulting Services<span class="hiddenAssociation">:Consulting Services</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/consulting-services/Economic+Development+Services&amp;">Economic Development Services</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/consulting-services/Expansions+and+New+Facilities&amp;">Expansions &amp; New Facilities</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/consulting-services/Building+Operator+Certfication&amp;">Building Operator Certfication</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/consulting-services/Metering+EDI+and+Other+Services&amp;">Metering, EDI &amp; Other Services</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/consulting-services/Device+Compatibility+Testing&amp;">Device Compatibility Testing</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/consulting-services/New+Development+Project+Management&amp;">New Development Project Management</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/consulting-services/Share+Your+Ideas&amp;">Share Your Ideas</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/consulting-services/R3B+Test+Page&amp;">R3B Test Page</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Real Estate and Locations">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Real Estate and Locations
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/Real+Estate+and+Locations&amp;">Overview - Real Estate and Locations<span class="hiddenAssociation">:Real Estate and Locations</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/Real+Estate+and+Locations/Film+Location+Scouts&amp;">Film Locations</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/Real+Estate+and+Locations/Secondary+Land+Use&amp;">Secondary Land Use</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/Real+Estate+and+Locations/Quitclaims+and+Encroachments&amp;">Quitclaims &amp; Encroachments</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/R3B+Level+2+Test+Page&amp;">R3B Level 2 Test Page</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/eSPOT+Test&amp;">eSPOT Test</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Partners+and+Vendors/Test+Page&amp;">Test Page</a></div>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="level1Child">
+                        <div class="containerNode level1">
+                           <a href="#" class="expandable" title="collapse category: Outage Center">
+                              <div class="accordionitem-state expanded"></div>
+                              Outage Center
+                           </a>
+                           <ul class="level2OuterContainer second-level">
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <div><a class="selected" href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center&amp;">Overview - Outage Center<span class="hiddenAssociation">:Outage Center</span></a></div>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center/Report+a+Power+Outage&amp;newTrouble=true">Report a Power Outage</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center/Report+a+Street+Light+Outage&amp;newTrouble=true">Report a Street Light Outage</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center/View+Current+Outages&amp;">View Current Outages</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center/Maintenance+Outage+Status&amp;newRequest=true">Maintenance Outage Status</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: All About Power Outages">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       All About Power Outages
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center/All+About+Power+Outages&amp;">Overview - All About Power Outages<span class="hiddenAssociation">:All About Power Outages</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center/All+About+Power+Outages/How+We+Restore+Power&amp;">How We Restore Power</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Rotating Outages">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Rotating Outages
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center/About+Rotating+Outages&amp;">Overview - Rotating Outages<span class="hiddenAssociation">:Rotating Outages</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center/About+Rotating+Outages/Find+Your+Rotating+Outage+Group&amp;">Find Your Rotating Outage Group</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center/About+Rotating+Outages/Rotating+Outage+FAQ&amp;">Rotating Outage FAQ</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center/Outage+Tips&amp;">Outage Tips</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center/Our+Service+Guarantee&amp;">Our Service Guarantee</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center/Reliability+Reports&amp;">Reliability Reports</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center/Test_Site_Area&amp;">Test_Site_Area</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Outage+Center/Test_Pass2&amp;">Test_Pass2</a></div>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="level1Child">
+                        <div class="containerNode level1">
+                           <a href="#" class="expandable" title="expand category: Safety">
+                              <div class="accordionitem-state collapsed"></div>
+                              Safety
+                           </a>
+                           <ul class="level2OuterContainer second-level" style="display: none;">
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety&amp;">Overview - Safety<span class="hiddenAssociation">:Safety</span></a></div>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Your Family's Safety">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Your Family's Safety
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety/Safety+-+Family+Safety&amp;">Overview - Your Family's Safety<span class="hiddenAssociation">:Your Family's Safety</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety/Safety+-+Family+Safety/Indoor+Tips&amp;">Electricity Safety at Home</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety/Safety+-+Family+Safety/Outdoor+Tips&amp;">Outdoor Tips</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety/Safety+-+Family+Safety/Prepared+for+Emergency&amp;">Prepared for Emergency</a></div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety/Safety+-+Family+Safety/Environmental+Health&amp;">Electric &amp; Magnetic Fields</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety/First+Responders&amp;">First Responders</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety/Children+and+Educators&amp;">Children &amp; Educators</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety/Committed+to+Safety&amp;">Committed to Safety</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety/Power+Lines+and+You&amp;">Power Lines &amp; You</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety/Safety+on+the+Job&amp;">Safety on the Job</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety/Power+Lines+and+Trees&amp;">Power Lines &amp; Trees</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety/Safety+FAQs&amp;">Safety FAQs</a></div>
+                              </li>
+                              <li class="level2Child">
+                                 <div class="containerNode level2">
+                                    <a class="expandable" href="#" title="expand category: Test Page">
+                                       <div class="accordionitem-state collapsed"></div>
+                                       Test Page
+                                    </a>
+                                    <ul class="level3OuterContainer third-level" style="display: none;">
+                                       <li class="level3Child">
+                                          <div class="containerNode level3">
+                                             <div><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety/Test+Page&amp;">Overview - Test Page<span class="hiddenAssociation">:Test Page</span></a></div>
+                                          </div>
+                                       </li>
+                                       <li class="level3Child">
+                                          <div class="containerNode level3"><a href="?1dmy&amp;urile=wcm:path:/SCE_Content_en/Content/Safety/Test+Page/Test+Sub-Page&amp;">Test Sub-Page</a></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>-->
+                  </ul>
+               </div>
+            </nav>
+         </div>
+      </div>
+   </div>
+   <!--  END - From leftNavigation.jsp Page --><!-- START - promotionalContent.jsp page -->
+   <!-- div id="sideColumnContent"  role="complementary" aria-labelledby="sideColumn"></div>-->  
+   <!-- END - promotionalContent.jsp page -->
+</div>
